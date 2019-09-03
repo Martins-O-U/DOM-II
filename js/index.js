@@ -105,3 +105,22 @@ document.addEventListener('keypress', (e)=> {
         false;
     }
 })
+
+// Stop Propagation Along with Click Event
+
+let div = document.querySelector(".content-destination");
+let midPar = document.querySelector(".content-destination p");
+midPar.addEventListener('click', (ev)=>{
+    div.addEventListener('click', (eve)=>{
+        div.style.background = "pink";  
+        console.log("inside div");  
+    })
+
+    midPar.textContent = "I got clicked, and stopped propagation!";
+    ev.stopPropagation();
+
+    setTimeout(function() {
+        midPar.textContent = "Expedition excursion design excursion fun, clean simple organized WordPress Travel colorful webdesign. Traveler blogger website design expedition clean excursion traveling.";
+        div.style.background = "";  
+    }, 1500);
+})
