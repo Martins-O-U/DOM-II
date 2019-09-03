@@ -51,9 +51,26 @@ window.alert("Default link has been Prevented");
 event.preventDefault();
 })
   
+Context = document.querySelectorAll('.img-content');
+Context[0].addEventListener('contextmenu', e => {
+  window.alert("Warning, You are not to copy this image without due consent of the content owner!");
+});
 
-  const input = document.querySelector('p');
-  input.addEventListener('select', ()=>{
-    const selection = event.target.substring(event.target.selectionStart, event.target.selectionEnd);
-      window.alert(`You selected: ${selection}`);
-  });
+document.addEventListener('keydown', e =>{
+    if(e.keyCode === 13){
+        window.alert(`You just hit the ${e.code} key`);
+    }else if (e.keyCode === 32){
+        alert(`You just hit the ${e.code} key`);
+    }else{
+        false;
+    }
+})
+
+const width = document.querySelector('h1');
+window.addEventListener('resize', (e)=>{
+    width.textContent = `Window Width: ${window.innerWidth}`;
+
+    setTimeout(()=>{
+        width.textContent = "Fun Bus";  
+    },1500)
+})
